@@ -182,7 +182,7 @@ class GPT4VisionAPI(BaseMultiModalModel):
         **kwargs,
     ):
         """Run the model."""
-        if True:
+        try:
             headers = {
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.openai_api_key}",
@@ -211,8 +211,7 @@ class GPT4VisionAPI(BaseMultiModalModel):
             else:
                 return response_json
 
-        else:
-            #except Exception as error:
+        except Exception as error:
             logger.error(
                 f"Error with the request: {error}, make sure you"
                 " double check input types and positions"
